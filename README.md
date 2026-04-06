@@ -1,62 +1,35 @@
-# build_docs (or bdoc) a self-documenting tool for continuous improvement of a codebase
+# agent_docs Framework
 
-Build Docs (bdoc) is a set of AI-native commands and agents designed to create a standardized, machine-readable interface between your codebase and AI agents. It ensures that documentation, plans, and technical context are easily discoverable and actionable.
+This repository provides a standardized, AI-readable framework for documenting software projects. By adopting this structure, you enable AI agents to quickly understand, navigate, and contribute to your repository using [**Continuous Alignment**](https://contalign.jefflunt.com/) and [**Progressive Disclosure**](https://docs.claude-mem.ai/progressive-disclosure).
 
-## Approach: The `build_docs/` Directory
-The `bdoc` standard dictates that all project-level documentation and implementation plans reside in a `build_docs/` directory at the project root. This keeps your root clean while providing a "Source of Truth" for AI agents.
+## Core Philosophy
+This framework is built on the principles of **Continuous Alignment**:
+1. **Iterative Alignment**: Align on the approach (the "Plan") *before* implementation.
+2. **Documentation-First**: Treat documentation as the contract/ground truth for development.
+3. **Context Management**: Use Progressive Disclosure to avoid context bloat.
+4. **Structured Work Breakdown**: Use plans as state-tracking mechanisms.
 
-### Key Components
-- **`README.md`**: High-level overview of the project, architecture, and tech stack.
-- **`plans/`**: A directory containing detailed implementation plans for features and bug fixes.
+## Structure
+- `01_orientation/`: High-level context & alignment goals.
+- `02_patterns/`: Implementation standards & documentation-first practices.
+- `03_deep_dives/`: Subsystem analysis & progressive disclosure targets.
+- `04_plans/`: Actionable work & state tracking (using breakdown conventions).
+- `templates/`: Boilerplates for agents to generate new documentation files.
 
----
+## How to use
 
-## Getting Started
-If you are new to `bdoc`, the best way to start is by initializing your project.
+### As a Documentation Framework
+AI agents should start at `01_orientation/README.md` to establish the alignment loop, then move to `02_patterns/` to understand conventions, reference `03_deep_dives/` for complex subsystem knowledge, and finally use `04_plans/` to track work progress.
 
-1.  **Initialize**: Run `/bdoc-init`. This scans your codebase and creates the `build_docs/` directory with a project README.
-2.  **Plan**: Use `/bdoc-feature` (for new features) or `/bdoc-bug` (for bug fixes). These agents will research the codebase and create a detailed implementation plan.
-3.  **Implement**: Once a plan is created, run `/bdoc-engineer <path-to-plan>` to execute the steps and verify the changes.
-4.  **Sync**: Run `/bdoc-update` after making changes to ensure the AI-facing documentation stays up-to-date.
+### As a Project Bootstrap
+To use this framework to initialize a new project, provide your AI agent with this prompt:
 
----
-
-## Available Commands
-
-| Command | Category | Description |
-| :--- | :--- | :--- |
-| `/bdoc-init` | `docs` | Initializes the `build_docs/` structure and scans the codebase. |
-| `/bdoc-read` | `docs` | Provides a high-level overview of the project from `build_docs/README.md`. |
-| `/bdoc-update` | `docs` | Syncs documentation with the current state of the code. |
-| `/bdoc-bug` | `plan` | Research and plan a bug fix (creates a plan file). |
-| `/bdoc-feature` | `plan` | Research and plan a new feature (creates a plan file). |
-| `/bdoc-trace` | `plan` | Traces data flow and provides debug info for a bug report. |
-| `/bdoc-merge` | `build` | Automatically merge a topic branch into a destination branch, resolving conflicts if necessary. |
-| `/bdoc-engineer` | `build` | Executes an implementation plan and verifies changes. |
-| `/bdoc-quick` | `build` | Rapidly implements small code changes based on feedback. |
-| `/bdoc-idea` | `brainstorm` | Brainstorm new projects, features, or concepts. |
-| `/bdoc-next` | `prioritize` | Scans pending plans and recommends what to work on next. |
-
----
-
-## Specialized Agents
-
-- **`bdoc_feature`**: **The Architect.** Deep-dives into context and produces "spoon-fed" implementation plans.
-- **`bdoc_bug`**: **The Investigator.** Reproduces issues and specifies exact technical fixes.
-- **`bdoc_engineer`**: **The Builder.** Follows plans, writes code, and runs tests to ensure everything works.
-- **`bdoc_quick`**: **The Sprinter.** Quickly implements small, focused changes from feedback.
-- **`bdoc_trace`**: **The Detective.** Traces data flow and provides deep technical context for bugs.
-- **`bdoc_merge`**: **The Mediator.** Handles complex merges and automatically resolves conflicts.
-- **`bdoc_idea`**: **The Partner.** A professional sounding board for brainstorming and refining concepts.
-
----
-
-## Installation
-
-To use these tools in your project, add this repository as a submodule:
-
-```bash
-git submodule add <repo-url> .opencode
+```plaintext
+I want to build a new project that <project goals description, which can be a few lines of text, or mutiple paragraphs>. Please start implementation using the patterns laid out in https://github.com/jefflunt/agent_docs and then let's plan a series of features together.
 ```
 
-Alternatively, you can clone the repository directly. Most AI agents will automatically discover the commands and agents within the directory.
+When initialized this way, an AI agent should:
+1. Create an `agent_docs/` folder that follows this structure (you do not need to directly clone this repo).
+2. Populate `01_orientation/` with the specific project goals and architectural context.
+3. Fill in `02_patterns/` as the foundational standards for the project evolve.
+4. Begin the [Continuous Alignment](https://contalign.jefflunt.com/) loop by proposing the first epic plan in `04_plans/`.
