@@ -48,6 +48,3 @@ Create deep-dive documentation of <feature/bug/subsystem> in
 `agent_docs/03_deep_dives/*.md` following `templates/deep_dive_template.md` as
 a template.
 ```
-
-## Examples
-- [planner](https://github.com/jefflunt/planner): A real-world example of applying this framework to organize architectural decisions, feature planning, and pattern documentation for a focused utility project.
