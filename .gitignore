@@ -2,3 +2,8 @@
 bun.lock
 node_modules/*
 package.json
+
+# Multica and Opencode Ephemeral Files/Directories
+.agent_context/
+.multica/
+.opencode/

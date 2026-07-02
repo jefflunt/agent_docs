@@ -14,12 +14,13 @@ This framework is built on the principles of **Continuous Alignment**:
 - `02_patterns/`: Implementation standards & documentation-first practices.
 - `03_deep_dives/`: Subsystem analysis & progressive disclosure targets.
 - `04_plans/`: Actionable work & state tracking (using breakdown conventions).
+- `05_tech_support/`: Investigations, diagnostics, & root-cause analyses of tickets/incidents.
 - `templates/`: Boilerplates for agents to generate new documentation files.
 
 ## How to use
 
 ### As a Documentation Framework
-AI agents should start at `01_orientation/README.md` to establish the alignment loop, then move to `02_patterns/` to understand conventions, reference `03_deep_dives/` for complex subsystem knowledge, and finally use `04_plans/` to track work progress.
+AI agents should start at `01_orientation/README.md` to establish the alignment loop, then move to `02_patterns/` to understand conventions, reference `03_deep_dives/` for complex subsystem knowledge, use `04_plans/` to track work progress, and consult or populate `05_tech_support/` for support issue investigations.
 
 ### As a Project Bootstrap
 To use this framework to initialize a new project, provide your AI agent with this prompt:
